@@ -1,12 +1,10 @@
-
+import React from 'react';
 import ExpenseList from './component/Hj';
 
 function App(props) {
   return (
     <div className="App">
       <header className="App-header">
-
-        
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -23,6 +21,5 @@ function App(props) {
     </div>
   );
 }
-
 
 export default App;
