@@ -1,4 +1,4 @@
-import ExpenseItem from './component/ExpenseItem';
+import ExpenseItem from './Expenses/ExpenseItem';
 
 function App() {
   const expenses = [
@@ -46,5 +46,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
