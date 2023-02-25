@@ -24,5 +24,4 @@ function ExpenseList() {
     </div>
   );
 }
-
 export default ExpenseList;
