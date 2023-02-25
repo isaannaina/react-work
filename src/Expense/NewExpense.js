@@ -15,7 +15,7 @@ function ExpenseList() {
       <h1>My Expenses</h1>
       <ExpenseForm onSaveExpenseData={addExpenseHandler} />
       {expenses.map((expense) => (
-        <div key={expense.id}>
+        <div key={expense.date.getTime()}>
           <h2>{expense.title}</h2>
           <p>Amount: {expense.amount}</p>
           <p>Date: {expense.date.toISOString()}</p>
