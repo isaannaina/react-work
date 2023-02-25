@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
-import ExpenseForm from './ExpenseForm';
-
+import Expenses from './Expense/expenses';
+import ExpenseList from './Expense/NewExpense';
 function App() {
-  const [expenses ,setExpenses] = useState([]);
-
-  const addExpenseHandler = (expense) => {
-    setExpenses((prevExpenses) => {
-      return [expense, ...prevExpenses];
-    });
-  };
-
   return (
     <div>
-      <ExpenseForm onSaveExpenseData={addExpenseHandler} />
+      <ExpenseList/>
+  
+    <div>
+      <Expenses />
     </div>
+  </div>
   );
 }
 
