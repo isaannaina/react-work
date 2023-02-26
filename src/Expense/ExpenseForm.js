@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 function ExpenseForm(props) {
- 
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
+  const [formVisible, setFormVisible] = useState(false);
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -17,6 +17,17 @@ function ExpenseForm(props) {
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
+  };
+
+  const showFormHandler = () => {
+    setFormVisible(true);
+  };
+
+  const cancelFormHandler = () => {
+    setFormVisible(false);
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
   };
 
   const submitHandler = (event) => {
@@ -32,7 +43,16 @@ function ExpenseForm(props) {
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
+    setFormVisible(false);
   };
+
+  if (!formVisible) {
+    return (
+      <div className="new-expense__actions">
+        <button type='button' onClick={showFormHandler}>Add Expense</button>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={submitHandler}>
@@ -51,6 +71,7 @@ function ExpenseForm(props) {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type='button' onClick={cancelFormHandler}>Cancel</button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>
