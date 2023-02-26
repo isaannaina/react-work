@@ -7,13 +7,13 @@
   .filter-input {
     padding: 10px;
     margin-right: 10px;
-    border: 1px solid #cf5050;
+    border: 1px solid #e20c0c;
     border-radius: 5px;
     font-size: 16px;
   }
   
   .filter-button {
-    background-color: #030a03;
+    background-color: #0a660a;
     color: white;
     border: none;
     border-radius: 5px;

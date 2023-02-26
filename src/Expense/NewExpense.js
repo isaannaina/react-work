@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ExpenseForm from './ExpenseForm';
 import ExpenseItem from './ExpenseItem';
-import  './ExpenseFilter.css'
+import './ExpenseFilter.css';
+
 function ExpenseList() {
   const [expenses, setExpenses] = useState([]);
   const [filteredExpenses, setFilteredExpenses] = useState([]);
@@ -11,6 +12,7 @@ function ExpenseList() {
       return [...prevExpenses, expense];
     });
   };
+
   const filterExpensesHandler = (event) => {
     const year = event.target.value;
     const filteredExpenses = expenses.filter((expense) => {
@@ -21,10 +23,9 @@ function ExpenseList() {
 
   return (
     <div className="new-expense">
-      <div>
       <h1>My Expenses</h1>
       <ExpenseForm onSaveExpenseData={addExpenseHandler} />
-      <div className='.filter-container'>
+      <div className=".filter-container">
         <label>Filter by Year</label>
         <select onChange={filterExpensesHandler}>
           <option value="">All</option>
@@ -43,18 +44,21 @@ function ExpenseList() {
               location={expense.location}
             />
           ))
-          
-        : expenses.map((expense) => (
-            <ExpenseItem
-              key={expense.id}
-              title={expense.title}
-              amount={expense.amount}
-              date={expense.date}
-              location={expense.location}
-            />
-          ))}
-    </div>
+        : expenses.length === 1 ? (
+            <p>Only single Expense here. Please add more...</p>
+          ) : (
+            expenses.map((expense) => (
+              <ExpenseItem
+                key={expense.id}
+                title={expense.title}
+                amount={expense.amount}
+                date={expense.date}
+                location={expense.location}
+              />
+            ))
+          )}
     </div>
   );
 }
+
 export default ExpenseList;
